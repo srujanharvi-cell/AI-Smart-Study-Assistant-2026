@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="An AI-powered learning workspace for students." />
+  <title>AI Smart Study Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">✦</span> AI Smart Study Assistant</a>
+    <span class="status" id="apiStatus">Checking AI connection…</span>
+  </header>
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">YOUR PERSONAL LEARNING SPACE</p>
+        <h1>Learn smarter.<br><span>Grow with confidence.</span></h1>
+        <p class="hero-copy">Understand topics, prepare exam notes, practise with quizzes, and find learning videos in
+          one place.</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orb">✦</div>
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <div class="panel main-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">AI LEARNING TOOLS</p>
+            <h2>What would you like to learn?</h2>
+          </div>
+        </div>
+        <div class="tabs" role="tablist">
+          <button class="tab active" data-mode="tutor">AI Tutor</button>
+          <button class="tab" data-mode="notes">Notes</button>
+          <button class="tab" data-mode="quiz">Quiz</button>
+        </div>
+        <form id="studyForm">
+          <label for="topic">Enter your subject or topic</label>
+          <textarea id="topic" placeholder="Example: Photosynthesis, quadratic equations, Python loops…"
+            required></textarea>
+          <div class="form-row">
+            <div><label for="language">Response language</label><select id="language">
+                <option>English</option>
+                <option>Kannada</option>
+                <option>Hindi</option>
+                <option>Tamil</option>
+                <option>Telugu</option>
+                <option>Malayalam</option>
+                <option>Marathi</option>
+                <option>Bengali</option>
+              </select></div>
+            <div><label for="level">Your level</label><select id="level">
+                <option>Beginner</option>
+                <option>Intermediate</option>
+                <option>Exam preparation</option>
+              </select></div>
+          </div>
+          <button class="primary" id="generateBtn" type="submit">Generate learning help <span>→</span></button>
+        </form>
+        <div class="result-wrap" id="resultWrap" hidden>
+          <div class="result-top">
+            <h3 id="resultTitle">Your learning result</h3><button id="copyBtn" class="small-button"
+              type="button">Copy</button>
+          </div>
+          <pre id="result"></pre>
+        </div>
+      </div>
+
+      <aside class="side-column">
+        <div class="panel">
+          <p class="eyebrow">VIDEO LEARNING</p>
+          <h2>Find YouTube lessons</h2>
+          <p class="muted">Search for lessons by topic, language, and level. Search results open on YouTube.</p>
+          <label for="videoTopic">Topic</label><input id="videoTopic" placeholder="e.g. C++ loops" />
+          <label for="videoLanguage">Language</label><select id="videoLanguage">
+            <option>English</option>
+            <option>Kannada</option>
+            <option>Hindi</option>
+            <option>Tamil</option>
+            <option>Telugu</option>
+            <option>Malayalam</option>
+          </select>
+          <label for="videoLevel">Level</label><select id="videoLevel">
+            <option>Beginner</option>
+            <option>Intermediate</option>
+            <option>Advanced</option>
+          </select>
+          <button class="secondary" id="youtubeBtn" type="button">Search YouTube ↗</button>
+        </div>
+        <div class="panel planner">
+          <p class="eyebrow">DAILY PROGRESS</p>
+          <h2>My study tasks</h2>
+          <form id="taskForm" class="task-form"><input id="taskInput" placeholder="Add a study task…" required /><button
+              type="submit" aria-label="Add task">+</button></form>
+          <ul id="taskList" class="task-list"></ul>
+          <p class="muted tiny" id="taskCount">Your tasks are saved in this browser.</p>
+        </div>
+      </aside>
+    </section>
+    <footer>Built to support learning. Always verify important facts with your textbook or teacher.</footer>
+
+    <section class="membership">
+      <div class="membership-heading">
+        <p class="eyebrow">CHOOSE YOUR LEARNING EXPERIENCE</p>
+        <h2>Unlock your learning potential</h2>
+        <p class="muted">One AI assistant. Choose the plan that suits your learning needs.</p>
+      </div>
+
+      <div class="plans">
+        <div class="plan-card">
+          <p class="plan-label">STARTER</p>
+          <h2>Free</h2>
+          <p class="plan-price">₹0 <span>/ forever</span></p>
+          <ul>
+            <li>Basic AI Tutor</li>
+            <li>Simple explanations</li>
+            <li>Notes and summaries</li>
+            <li>Practice quizzes</li>
+            <li>YouTube learning search</li>
+            <li>Basic study planner</li>
+          </ul>
+          <button class="secondary" type="button" disabled>Free plan</button>
+        </div>
+
+        <div class="plan-card premium-card">
+          <p class="plan-label">ADVANCED LEARNING</p>
+          <h2>Premium <span class="premium-star">✦</span></h2>
+          <p class="plan-price">Coming soon</p>
+          <ul>
+            <li>More detailed AI explanations</li>
+            <li>Advanced notes and summaries</li>
+            <li>Personalised study plans</li>
+            <li>More quiz practice</li>
+            <li>Detailed progress analysis</li>
+            <li>Advanced skill and career guidance</li>
+            <li>Higher AI usage limits</li>
+          </ul>
+          <button class="primary" id="premiumBtn" type="button">
+            Preview Premium →
+          </button>
+        </div>
+      </div>
+
+      <p class="premium-message" id="premiumMessage" hidden>
+        Premium preview activated! This is a demonstration, not a paid subscription.
+      </p>
+    </section>
+
+  </main>
+  <script src="app.js"></script>
+</body>
+
+</html>
